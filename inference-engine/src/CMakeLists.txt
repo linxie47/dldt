@@ -27,6 +27,7 @@ if (ENABLE_GNA)
 endif()
 
 add_subdirectory(hetero_plugin)
+add_subdirectory(ie_c_wrapper)
 
 set(InferenceEngine_LIBRARIES inference_engine)
 set(InferenceEngine_INCLUDE_DIRS ${CMAKE_SOURCE_DIR}/include)
