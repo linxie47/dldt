@@ -20,8 +20,10 @@ include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
-if(WIN32)
-    add_definitions(-DIMPLEMENT_INFERENCE_ENGINE_API)
+add_definitions(-DIMPLEMENT_INFERENCE_ENGINE_API)
+
+if (UNIX OR APPLE AND ${CMAKE_BUILD_TYPE} STREQUAL "Release")
+    add_definitions(-fvisibility=default)
 endif()
 
 add_library(${TARGET_NAME} SHARED ${SOURCES} ${HEADERS})
